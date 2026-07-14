@@ -14,6 +14,25 @@ navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
+// Experience dropdown toggle
+const expDropdown = document.getElementById('expDropdown');
+const expDropdownBtn = document.getElementById('expDropdownBtn');
+if (expDropdown && expDropdownBtn) {
+  expDropdownBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    expDropdown.classList.toggle('open');
+  });
+  // Close dropdown when clicking a menu item
+  expDropdown.querySelectorAll('.nav-dropdown-item').forEach(item => {
+    item.addEventListener('click', () => {
+      expDropdown.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+  // Close dropdown when clicking outside
+  document.addEventListener('click', () => expDropdown.classList.remove('open'));
+}
+
 // Back to top button
 const backToTop = document.getElementById('backToTop');
 
