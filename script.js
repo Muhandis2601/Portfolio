@@ -144,16 +144,33 @@ const internTrack = document.getElementById('internTrack');
 const internPrev  = document.getElementById('internPrev');
 const internNext  = document.getElementById('internNext');
 if (internTrack && internPrev && internNext) {
+  let internSetWidth = 0;
+  let internScrolled = false;
+
   const cardWidth = () => {
     const card = internTrack.querySelector('.package-card');
     if (!card) return 320;
     const gap = parseInt(getComputedStyle(internTrack).gap) || 24;
     return card.offsetWidth + gap;
   };
+
+  const updatePrevBtn = () => {
+    const atStart = internTrack.scrollLeft <= internSetWidth + 4;
+    internPrev.style.opacity = (internScrolled && !atStart) ? '1' : '0';
+    internPrev.style.pointerEvents = (internScrolled && !atStart) ? 'auto' : 'none';
+  };
+
+  internTrack.addEventListener('scroll', () => {
+    if (!internSetWidth) internSetWidth = internTrack.scrollWidth / 3;
+    if (internTrack.scrollLeft > internSetWidth + 10) internScrolled = true;
+    updatePrevBtn();
+  });
+
   internPrev.addEventListener('click', () => {
     internTrack.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
   });
   internNext.addEventListener('click', () => {
+    internScrolled = true;
     internTrack.scrollBy({ left: cardWidth(), behavior: 'smooth' });
   });
 }
