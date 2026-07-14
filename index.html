@@ -400,99 +400,213 @@
   <!-- CERTIFICATES -->
   <section class="certificates" id="certificates">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <p class="section-eyebrow">Pencapaian</p>
-          <h2 class="section-title">Sertifikat</h2>
+
+      <!-- Header -->
+      <div class="cert-header">
+        <div class="cert-header-left">
+          <p class="section-eyebrow">My Certificates</p>
+          <h2 class="section-title">Certificates &amp;<br>Achievements</h2>
+          <p class="section-desc">I continuously improve my skills and knowledge through various certifications from trusted institutions and platforms to stay up-to-date and deliver high-quality results.</p>
+          <div class="cert-hero-stats">
+            <div class="cert-hero-stat">
+              <span class="cert-hero-num">14+</span>
+              <span>Certificates</span>
+            </div>
+            <div class="cert-hero-stat">
+              <span class="cert-hero-num">3</span>
+              <span>Categories</span>
+            </div>
+            <div class="cert-hero-stat">
+              <i class="fa-solid fa-circle-check"></i>
+              <span class="cert-hero-num">100%</span>
+              <span>Commitment</span>
+            </div>
+          </div>
         </div>
-        <p class="section-desc-side">Klik folder untuk membuka koleksi sertifikat, lalu geser untuk menjelajahi semuanya.</p>
+        <div class="cert-header-right">
+          <img src="assets/Certificate/Gambar%20Utama%20Sertifikat.png" alt="Certificates &amp; Achievements" class="cert-hero-img">
+          <span class="cert-hero-badge">14+</span>
+        </div>
       </div>
 
-      <div class="folder-wrap">
-        <button class="folder" id="certFolder" type="button" aria-expanded="false" aria-controls="certCarousel">
-          <span class="folder-back"></span>
-          <span class="folder-paper folder-paper-2"></span>
-          <span class="folder-paper folder-paper-1"></span>
-          <span class="folder-front"></span>
-          <span class="folder-count">14</span>
+      <!-- Trigger button -->
+      <div class="cert-trigger-wrap">
+        <button class="cert-trigger-btn" id="certTriggerBtn" aria-expanded="false">
+          <i class="fa-solid fa-folder-open"></i>
+          View My Certificates
+          <i class="fa-solid fa-chevron-down cert-chevron"></i>
         </button>
-        <p class="folder-hint" id="folderHint">Klik folder untuk melihat sertifikat</p>
       </div>
 
-      <div class="cert-carousel" id="certCarousel">
-        <div class="cert-track" id="certTrack">
-          <a class="cert-item" href="assets/Certificate/cert-1-more22-finalis-paper.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Finalis Lomba Paper &mdash; MORE 2022</p>
-            <span class="cert-issuer">BEM FTMM Universitas Airlangga &middot; 2022</span>
+      <!-- Content revealed on click -->
+      <div class="cert-content" id="certContent">
+        <!-- Tabs -->
+        <div class="cert-tabs">
+          <button class="cert-tab active" data-tab="all"><i class="fa-solid fa-table-cells-large"></i> All</button>
+          <button class="cert-tab" data-tab="competition"><i class="fa-solid fa-trophy"></i> Competition Certificate</button>
+          <button class="cert-tab" data-tab="expertise"><i class="fa-solid fa-star"></i> Certificate of Expertise</button>
+          <button class="cert-tab" data-tab="training"><i class="fa-solid fa-graduation-cap"></i> Training Certificate</button>
+        </div>
+
+        <!-- Cards -->
+        <div class="cert-grid" id="certGrid">
+
+          <!-- Competition -->
+          <a class="cert-card" href="assets/Certificate/cert-1-more22-finalis-paper.pdf" target="_blank" rel="noopener" data-cat="competition">
+            <div class="cert-card-img competition"><i class="fa-solid fa-trophy"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag competition">Competition</span>
+              <h4>Finalist &mdash; MORE&apos;22 Renewable Energy Paper Competition</h4>
+              <p>BEM FTMM Universitas Airlangga</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2022</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-2-film-uns-2024.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Semifinalis Semar LKTIN &mdash; FILM 2024</p>
-            <span class="cert-issuer">Universitas Sebelas Maret &middot; 2024</span>
+
+          <a class="cert-card" href="assets/Certificate/cert-2-film-uns-2024.pdf" target="_blank" rel="noopener" data-cat="competition">
+            <div class="cert-card-img competition"><i class="fa-solid fa-trophy"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag competition">Competition</span>
+              <h4>Semifinalist &mdash; Semar LKTIN FILM 2024</h4>
+              <p>Universitas Sebelas Maret</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2024</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-3-bem-km-ugm.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Staf Kementerian Kesehatan Mental</p>
-            <span class="cert-issuer">BEM KM Universitas Gadjah Mada &middot; 2023</span>
+
+          <a class="cert-card" href="assets/Certificate/cert-4-g2snc-unnes.pdf" target="_blank" rel="noopener" data-cat="competition">
+            <div class="cert-card-img competition"><i class="fa-solid fa-trophy"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag competition">Competition</span>
+              <h4>Participant &mdash; Green Scientists Society National Competition</h4>
+              <p>Universitas Negeri Semarang</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2023</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-4-g2snc-unnes.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Peserta &mdash; Green Scientists Society National Competition</p>
-            <span class="cert-issuer">Universitas Negeri Semarang &middot; 2023</span>
+
+          <a class="cert-card" href="assets/Certificate/cert-5-pfsains-pertamina.pdf" target="_blank" rel="noopener" data-cat="competition">
+            <div class="cert-card-img competition"><i class="fa-solid fa-trophy"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag competition">Competition</span>
+              <h4>Top 73 Ideation &mdash; PFSains 2023</h4>
+              <p>Pertamina Foundation</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2023</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-5-pfsains-pertamina.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Top 73 Besar Kategori Ideation &mdash; PFSains 2023</p>
-            <span class="cert-issuer">Pertamina Foundation &middot; 2023</span>
+
+          <a class="cert-card" href="assets/Certificate/cert-14-nec-uin-jakarta.pdf" target="_blank" rel="noopener" data-cat="competition">
+            <div class="cert-card-img competition"><i class="fa-solid fa-medal"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag competition">Competition</span>
+              <h4>Bronze Medal &amp; Best Poster &mdash; NEC Season 2</h4>
+              <p>UIN Syarif Hidayatullah Jakarta</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2024</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-6-pkmpi-gamatea.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Pendanaan PKM-PI &mdash; GAMATEA</p>
-            <span class="cert-issuer">Universitas Gadjah Mada &middot; 2023</span>
+
+          <!-- Expertise -->
+          <a class="cert-card" href="assets/Certificate/cert-6-pkmpi-gamatea.pdf" target="_blank" rel="noopener" data-cat="expertise">
+            <div class="cert-card-img expertise"><i class="fa-solid fa-star"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag expertise">Expertise</span>
+              <h4>Funded Research &mdash; PKM-PI GAMATEA</h4>
+              <p>Universitas Gadjah Mada</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2023</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-7-pr-lentera-kehidupan.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Kepala Divisi Public Relation</p>
-            <span class="cert-issuer">Komunitas Lentera Kehidupan &middot; 2023</span>
+
+          <a class="cert-card" href="assets/Certificate/cert-11-myskill-toefl.pdf" target="_blank" rel="noopener" data-cat="expertise">
+            <div class="cert-card-img expertise"><i class="fa-solid fa-language"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag expertise">Expertise</span>
+              <h4>TOEFL Preparation Bootcamp &mdash; Batch 17</h4>
+              <p>MySkill</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2024</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-8-povvaf-2023.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Staff Divisi Sponsorship &mdash; POVVAF 2023</p>
-            <span class="cert-issuer">Sekolah Vokasi Universitas Gadjah Mada &middot; 2024</span>
+
+          <a class="cert-card" href="assets/Certificate/cert-13-penelitian-drtrb.pdf" target="_blank" rel="noopener" data-cat="expertise">
+            <div class="cert-card-img expertise"><i class="fa-solid fa-microscope"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag expertise">Expertise</span>
+              <h4>Research Certificate &mdash; Vibration Analysis DR-TRB</h4>
+              <p>Universitas Gadjah Mada</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2024</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-9-aec-volunteer.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Volunteer &mdash; Online Education Campaign</p>
-            <span class="cert-issuer">Amorza Education Center &middot; 2023</span>
+
+          <!-- Training -->
+          <a class="cert-card" href="assets/Certificate/cert-3-bem-km-ugm.pdf" target="_blank" rel="noopener" data-cat="training">
+            <div class="cert-card-img training"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag training">Training</span>
+              <h4>Staff &mdash; Ministry of Mental Health BEM KM UGM</h4>
+              <p>BEM KM Universitas Gadjah Mada</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2023</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-10-berbagi-rasa-2023.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Koordinator Sponsorship &mdash; Berbagi Rasa 2023</p>
-            <span class="cert-issuer">BEM KM Universitas Gadjah Mada &middot; 2023</span>
+
+          <a class="cert-card" href="assets/Certificate/cert-7-pr-lentera-kehidupan.pdf" target="_blank" rel="noopener" data-cat="training">
+            <div class="cert-card-img training"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag training">Training</span>
+              <h4>Head of Public Relations Division</h4>
+              <p>Komunitas Lentera Kehidupan</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2023</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-11-myskill-toefl.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>TOEFL Preparation Bootcamp &mdash; Batch 17</p>
-            <span class="cert-issuer">MySkill &middot; 2024</span>
+
+          <a class="cert-card" href="assets/Certificate/cert-8-povvaf-2023.pdf" target="_blank" rel="noopener" data-cat="training">
+            <div class="cert-card-img training"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag training">Training</span>
+              <h4>Sponsorship Division Staff &mdash; POVVAF 2023</h4>
+              <p>Sekolah Vokasi Universitas Gadjah Mada</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2023</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-12-gmeb-2023.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Panitia Divisi Sponsorship &mdash; 8th GMEB 2023</p>
-            <span class="cert-issuer">GMEB &middot; 2023</span>
+
+          <a class="cert-card" href="assets/Certificate/cert-9-aec-volunteer.pdf" target="_blank" rel="noopener" data-cat="training">
+            <div class="cert-card-img training"><i class="fa-solid fa-hands-helping"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag training">Training</span>
+              <h4>Volunteer &mdash; Online Education Campaign</h4>
+              <p>Amorza Education Center</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2023</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-13-penelitian-drtrb.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Sertifikat Penelitian &mdash; Analisa Getaran DR-TRB</p>
-            <span class="cert-issuer">Universitas Gadjah Mada &middot; 2024</span>
+
+          <a class="cert-card" href="assets/Certificate/cert-10-berbagi-rasa-2023.pdf" target="_blank" rel="noopener" data-cat="training">
+            <div class="cert-card-img training"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag training">Training</span>
+              <h4>Sponsorship Coordinator &mdash; Berbagi Rasa 2023</h4>
+              <p>BEM KM Universitas Gadjah Mada</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2023</span>
+            </div>
           </a>
-          <a class="cert-item" href="assets/Certificate/cert-14-nec-uin-jakarta.pdf" target="_blank" rel="noopener">
-            <div class="cert-thumb"><i class="fa-solid fa-file-pdf"></i></div>
-            <p>Bronze Medal &amp; Essay Best Poster &mdash; NEC Season 2</p>
-            <span class="cert-issuer">UIN Syarif Hidayatullah Jakarta &middot; 2024</span>
+
+          <a class="cert-card" href="assets/Certificate/cert-12-gmeb-2023.pdf" target="_blank" rel="noopener" data-cat="training">
+            <div class="cert-card-img training"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="cert-card-body">
+              <span class="cert-card-tag training">Training</span>
+              <h4>Sponsorship Committee &mdash; 8th GMEB 2023</h4>
+              <p>GMEB</p>
+              <span class="cert-card-year"><i class="fa-regular fa-calendar"></i> 2023</span>
+            </div>
           </a>
+
+        </div>
+
+        <!-- Footer note -->
+        <div class="cert-footer-note">
+          <i class="fa-solid fa-trophy"></i>
+          <div>
+            <strong>Always learning, always growing.</strong>
+            <span>More certificates coming soon!</span>
+          </div>
+          <i class="fa-solid fa-chevron-right"></i>
         </div>
       </div>
+
     </div>
   </section>
 

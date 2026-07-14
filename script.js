@@ -175,23 +175,34 @@ if (internTrack && internPrev && internNext) {
   });
 }
 
-// Certificate folder toggle + infinite drag carousel
-const certFolder = document.getElementById('certFolder');
-const certCarousel = document.getElementById('certCarousel');
-const certTrack = document.getElementById('certTrack');
-const folderHint = document.getElementById('folderHint');
-
-if (certFolder && certCarousel && certTrack && folderHint) {
-  certFolder.addEventListener('click', () => {
-    const isOpen = certFolder.classList.toggle('open');
-    certCarousel.classList.toggle('open', isOpen);
-    certFolder.setAttribute('aria-expanded', String(isOpen));
-    folderHint.textContent = isOpen
-      ? 'Klik folder untuk menutup'
-      : 'Klik folder untuk melihat sertifikat';
-    if (isOpen) setupInfiniteCarousel(certTrack);
+// Certificate trigger button + tab filter
+const certTriggerBtn = document.getElementById('certTriggerBtn');
+const certContent    = document.getElementById('certContent');
+if (certTriggerBtn && certContent) {
+  certTriggerBtn.addEventListener('click', () => {
+    const isOpen = certContent.classList.toggle('open');
+    certTriggerBtn.classList.toggle('open', isOpen);
+    certTriggerBtn.setAttribute('aria-expanded', String(isOpen));
   });
 }
+
+// Cert tab filtering
+const certTabs = document.querySelectorAll('.cert-tab');
+const certCards = document.querySelectorAll('.cert-card');
+certTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    certTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const selected = tab.dataset.tab;
+    certCards.forEach(card => {
+      if (selected === 'all' || card.dataset.cat === selected) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
 
 // Fade-in on scroll for cards
 const revealEls = document.querySelectorAll('.card, .feature-card, .package-card, .org-card, .edu-card, .timeline-item, .tools-photo-wrap');
