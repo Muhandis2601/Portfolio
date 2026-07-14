@@ -809,28 +809,141 @@ section { padding: 100px 0; }
 .cert-hero-num { font-size: 1.25rem; font-weight: 800; color: var(--green-700); }
 .cert-hero-stat span:last-child { font-size: 0.82rem; color: var(--gray); font-weight: 500; }
 
-/* Hero image right */
-.cert-header-right {
+/* Hero illustration right */
+.cert-header-right { position: relative; flex-shrink: 0; }
+
+.cert-illustration {
   position: relative;
-  flex-shrink: 0;
+  width: 280px;
+  height: 260px;
 }
-.cert-hero-img {
-  max-width: 320px;
-  width: 100%;
-  display: block;
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
-}
-.cert-hero-badge {
+
+/* Badge "14" */
+.cert-illus-badge {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: var(--green-600);
-  color: var(--white);
+  top: 4px;
+  right: 4px;
+  width: 54px;
+  height: 54px;
+  background: var(--green-100);
+  color: var(--green-700);
   font-weight: 800;
+  font-size: 1.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--white);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  z-index: 10;
+}
+
+/* Cards */
+.cert-illus-card {
+  position: absolute;
+  width: 190px;
+  height: 135px;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+}
+.cert-illus-card--back {
+  bottom: 90px;
+  left: 20px;
+  transform: rotate(-7deg);
+  z-index: 2;
+  background: #f8fafc;
+}
+.cert-illus-card--front {
+  bottom: 96px;
+  left: 38px;
+  transform: rotate(3deg);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  gap: 3px;
+}
+
+.cic-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--green-700);
+}
+.cic-sub {
+  font-size: 0.6rem;
+  letter-spacing: 1.5px;
+  color: var(--gray);
+  font-weight: 600;
+}
+.cic-line {
+  width: 80%;
+  height: 1px;
+  background: var(--green-100);
+  margin: 6px 0;
+}
+.cic-sig {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 1.4rem;
+  color: var(--dark);
+  line-height: 1;
+}
+.cic-sig-label {
+  font-size: 0.48rem;
+  letter-spacing: 1.5px;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+.cic-medal {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--green-500), var(--green-700));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
   font-size: 1rem;
-  padding: 6px 14px;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 3px 10px rgba(22,163,74,0.35);
+}
+.cic-medal::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 12px;
+  background: var(--green-600);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 50% 70%, 20% 100%);
+}
+
+/* Tray */
+.cert-illus-tray {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  height: 100px;
+  background: var(--green-600);
+  border-radius: 18px;
+  box-shadow: 0 10px 32px rgba(22,163,74,0.35);
+  z-index: 4;
+}
+.cert-illus-tray-inner {
+  position: absolute;
+  top: 22px;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  background: var(--green-700);
+  border-radius: 10px 10px 14px 14px;
 }
 
 /* Trigger button */
