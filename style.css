@@ -162,7 +162,7 @@ ul { list-style: none; }
 }
 .hero-subtitle {
   font-size: 1.15rem;
-  max-width: 560px;
+  max-width: 900px;
   color: rgba(255,255,255,0.85);
   margin-bottom: 36px;
 }
