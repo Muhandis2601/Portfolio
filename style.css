@@ -481,7 +481,10 @@ section { padding: 100px 0; }
   margin-top: 22px;
   transition: transform 0.2s ease;
 }
-.edu-achieve-card:nth-child(even) { margin-left: 20px; }
+.edu-achieve-card:nth-child(1) { margin-left: 50px; }
+.edu-achieve-card:nth-child(2) { margin-left: 70px; }
+.edu-achieve-card:nth-child(3) { margin-left: -30px; }
+.edu-achieve-card:nth-child(4) { margin-left: -60px; }
 .edu-achieve-icon {
   position: absolute;
   top: -20px;
@@ -505,7 +508,7 @@ section { padding: 100px 0; }
   position: absolute;
   right: -10px;
   bottom: 0;
-  width: clamp(340px, 38vw, 520px);
+  width: clamp(380px, 44vw, 600px);
   pointer-events: none;
   z-index: 2;
 }
