@@ -364,13 +364,15 @@ section { padding: 100px 0; }
 .tb-11 { top: 5%;  left: 50%;   transform: translate(-50%, -50%); } /* PVsyst (above photo) */
 
 /* Education */
-.education { background: var(--white); }
+.education { background: var(--white); overflow: hidden; }
 
 .edu-new-grid {
   display: grid;
-  grid-template-columns: 1fr 1.3fr 200px;
+  grid-template-columns: 340px 1fr;
   gap: 36px;
   align-items: start;
+  padding-right: 280px;
+  padding-bottom: 60px;
 }
 
 .edu-left {
@@ -458,7 +460,7 @@ section { padding: 100px 0; }
 }
 
 /* Decorative dots */
-.edu-dots { display: flex; gap: 10px; justify-content: center; }
+.edu-dots { display: flex; gap: 10px; justify-content: flex-start; }
 .edu-dot {
   width: 13px;
   height: 13px;
@@ -494,25 +496,29 @@ section { padding: 100px 0; }
 .edu-achieve-card h4 { font-size: 0.85rem; color: var(--white); margin-bottom: 5px; font-weight: 700; line-height: 1.4; }
 .edu-achieve-card p { font-size: 0.76rem; color: rgba(255,255,255,0.65); text-align: justify; line-height: 1.55; margin: 0; }
 
-/* Photo column */
+/* Photo — absolute overlay from bottom-right */
 .edu-photo {
-  position: sticky;
-  top: 100px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(260px, 26vw, 400px);
+  pointer-events: none;
+  z-index: 2;
 }
 .edu-photo img {
   width: 100%;
-  border-radius: var(--radius);
-  object-fit: cover;
-  object-position: top center;
   display: block;
+  object-fit: contain;
+  object-position: bottom center;
 }
 
-@media (max-width: 1100px) {
-  .edu-new-grid { grid-template-columns: 1fr 1.2fr; }
-  .edu-photo { display: none; }
+@media (max-width: 1200px) {
+  .edu-new-grid { padding-right: 220px; }
+  .edu-photo { width: clamp(200px, 20vw, 280px); }
 }
-@media (max-width: 768px) {
-  .edu-new-grid { grid-template-columns: 1fr; }
+@media (max-width: 960px) {
+  .edu-new-grid { grid-template-columns: 1fr; padding-right: 0; padding-bottom: 0; }
+  .edu-photo { display: none; }
   .edu-left { position: static; }
 }
 
