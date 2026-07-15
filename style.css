@@ -440,6 +440,51 @@ section { padding: 100px 0; }
   border-radius: 50px;
   width: 0%;
   animation: gpaFill 4s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bubble particles inside the bar */
+.gpa-bar-fill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.55) 4px, transparent 5px),
+    radial-gradient(circle, rgba(255,255,255,0.35) 3px, transparent 4px),
+    radial-gradient(circle, rgba(255,255,255,0.50) 5px, transparent 6px),
+    radial-gradient(circle, rgba(255,255,255,0.30) 3px, transparent 4px),
+    radial-gradient(circle, rgba(255,255,255,0.45) 4px, transparent 5px),
+    radial-gradient(circle, rgba(255,255,255,0.40) 3px, transparent 4px);
+  background-size:
+    20% 76px,
+    16% 76px,
+    22% 76px,
+    18% 76px,
+    14% 76px,
+    24% 76px;
+  animation: bubblesRise 2.2s linear infinite;
+}
+
+@keyframes bubblesRise {
+  0% {
+    background-position:
+      6%   2px,
+      24%  -16px,
+      44%  -30px,
+      62%  -6px,
+      78%  -24px,
+      92%  -12px;
+  }
+  100% {
+    background-position:
+      6%   -44px,
+      24%  -62px,
+      44%  -76px,
+      62%  -52px,
+      78%  -70px,
+      92%  -58px;
+  }
 }
 .gpa-bar-text {
   position: absolute;
