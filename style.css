@@ -463,7 +463,7 @@ section { padding: 100px 0; }
     18% 76px,
     14% 76px,
     24% 76px;
-  animation: bubblesRise 2.2s linear infinite;
+  animation: bubblesRise 2.2s linear 1 forwards;
 }
 
 @keyframes bubblesRise {
