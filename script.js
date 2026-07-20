@@ -175,6 +175,42 @@ if (internTrack && internPrev && internNext) {
   });
 }
 
+// Documentation gallery carousel nav buttons (internship detail pages)
+const docTrack = document.getElementById('docTrack');
+const docPrev  = document.getElementById('docPrev');
+const docNext  = document.getElementById('docNext');
+if (docTrack && docPrev && docNext) {
+  let docSetWidth = 0;
+  let docScrolled = false;
+
+  const docCardWidth = () => {
+    const card = docTrack.querySelector('.doc-card');
+    if (!card) return 220;
+    const gap = parseInt(getComputedStyle(docTrack).gap) || 14;
+    return card.offsetWidth + gap;
+  };
+
+  const updateDocPrevBtn = () => {
+    const atStart = docTrack.scrollLeft <= docSetWidth + 4;
+    docPrev.style.opacity = (docScrolled && !atStart) ? '1' : '0';
+    docPrev.style.pointerEvents = (docScrolled && !atStart) ? 'auto' : 'none';
+  };
+
+  docTrack.addEventListener('scroll', () => {
+    if (!docSetWidth) docSetWidth = docTrack.scrollWidth / 3;
+    if (docTrack.scrollLeft > docSetWidth + 10) docScrolled = true;
+    updateDocPrevBtn();
+  });
+
+  docPrev.addEventListener('click', () => {
+    docTrack.scrollBy({ left: -docCardWidth(), behavior: 'smooth' });
+  });
+  docNext.addEventListener('click', () => {
+    docScrolled = true;
+    docTrack.scrollBy({ left: docCardWidth(), behavior: 'smooth' });
+  });
+}
+
 // Certificate trigger button + tab filter
 const certTriggerBtn = document.getElementById('certTriggerBtn');
 const certContent    = document.getElementById('certContent');
