@@ -1,7 +1,10 @@
 // Navbar scroll state
 const navbar = document.getElementById('navbar');
+const navbarForceScrolled = navbar.hasAttribute('data-force-scrolled');
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  if (!navbarForceScrolled) {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }
   backToTop.classList.toggle('visible', window.scrollY > 400);
 });
 
