@@ -139,6 +139,15 @@ function setupInfiniteCarousel(track) {
 setupInfiniteCarousel(document.getElementById('internTrack'));
 setupInfiniteCarousel(document.getElementById('docTrack'));
 
+// Organization marquee — duplicate the track once so the CSS animation
+// (translateX 0 -> -50%) loops back to an identical frame seamlessly
+function setupMarquee(track) {
+  if (!track || track.dataset.marqueeReady) return;
+  track.dataset.marqueeReady = 'true';
+  track.insertAdjacentHTML('beforeend', track.innerHTML);
+}
+setupMarquee(document.getElementById('orgTrack'));
+
 // Internship carousel nav buttons
 const internTrack = document.getElementById('internTrack');
 const internPrev  = document.getElementById('internPrev');
@@ -241,7 +250,7 @@ certTabs.forEach(tab => {
 });
 
 // Fade-in on scroll for cards
-const revealEls = document.querySelectorAll('.card, .feature-card, .package-card, .org-card, .edu-card, .timeline-item, .tools-photo-wrap');
+const revealEls = document.querySelectorAll('.card, .feature-card, .package-card, .edu-card, .timeline-item, .tools-photo-wrap');
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
