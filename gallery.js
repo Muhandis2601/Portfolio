@@ -387,7 +387,16 @@
     const border = new THREE.Mesh(new THREE.BoxGeometry(FRAME_W + 0.18, FRAME_H + 0.18, 0.06), frameMat);
     frameGroup.add(border);
 
-    const blankCanvas = new THREE.Mesh(new THREE.PlaneGeometry(FRAME_W, FRAME_H), canvasMat);
+    const artMat = new THREE.MeshStandardMaterial({ color: 0xfbf8f3, roughness: 0.95 });
+    if (work.img) {
+      new THREE.TextureLoader().load(work.img, function (tex) {
+        tex.encoding = THREE.sRGBEncoding;
+        artMat.map = tex;
+        artMat.color.set(0xffffff);
+        artMat.needsUpdate = true;
+      });
+    }
+    const blankCanvas = new THREE.Mesh(new THREE.PlaneGeometry(FRAME_W, FRAME_H), artMat);
     blankCanvas.position.z = 0.045;
     frameGroup.add(blankCanvas);
 
@@ -501,7 +510,7 @@
       const w = WORKS[nearest];
       captionNum.textContent = String(nearest + 1).padStart(2, '0') + ' / ' + String(WORKS.length).padStart(2, '0');
       captionTitle.textContent = w.title;
-      captionSub.textContent = w.cat + ' — Empty frame, artwork coming soon';
+      captionSub.textContent = w.cat + (w.img ? '' : ' — Empty frame, artwork coming soon');
       captionLink.href = w.href;
     }
   }
