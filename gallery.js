@@ -354,7 +354,7 @@ const backingMat = new THREE.MeshStandardMaterial({ color: 0x30251a, emissive: 0
 
     // Empty framed canvas, mounted just in front of the backlit panel
     const frameGroup = new THREE.Group();
-    frameGroup.position.set(backX + side * 0.05, NICHE_CENTER_Y, z);
+    frameGroup.position.set(backX - side * 0.05, NICHE_CENTER_Y, z);
     frameGroup.rotation.y = side === -1 ? Math.PI / 2 : -Math.PI / 2;
 
     const border = new THREE.Mesh(new THREE.BoxGeometry(FRAME_W + 0.18, FRAME_H + 0.18, 0.06), frameMat);
