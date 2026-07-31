@@ -2197,7 +2197,7 @@ section { padding: 100px 0; }
   margin-bottom: 16px;
   background: #e9e2d2;
 }
-.gal-modal-img-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.gal-modal-img-wrap img { width: 100%; max-height: 300px; object-fit: contain; display: block; }
 
 .gal-modal-desc { font-size: 0.87rem; color: #6b6152; line-height: 1.65; text-align: justify; margin-bottom: 18px; }
 
