@@ -1918,6 +1918,17 @@ section { padding: 100px 0; }
   border-radius: 4px;
   background: linear-gradient(160deg, var(--green-100), var(--white));
 }
+/* When frame contains an image, hide the placeholder gradient */
+.showcase-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  z-index: 1;
+}
+.showcase-frame:has(img)::after { display: none; }
 .sf-1 { width: 148px; height: 188px; top: 6px; left: 54px; z-index: 1; animation: showcaseFloat1 6.5s ease-in-out infinite; }
 .sf-2 { width: 148px; height: 188px; top: 34px; left: 168px; z-index: 2; border-color: var(--green-500); animation: showcaseFloat2 7.5s ease-in-out infinite; }
 .sf-3 { width: 116px; height: 148px; top: 96px; left: -2px; z-index: 1; animation: showcaseFloat3 5.8s ease-in-out infinite; }
