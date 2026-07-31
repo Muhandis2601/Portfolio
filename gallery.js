@@ -275,12 +275,15 @@
     trim.position.set(0, DOOR_HEIGHT, z);
     scene.add(trim);
   }
-  const PARTITION_Z = (WORK_Z[3] + WORK_Z[4]) / 2 - 2;
+  const PARTITION_ZS = [];
+  for (let g = 4; g < WORKS.length; g += 4) {
+    PARTITION_ZS.push((WORK_Z[g - 1] + WORK_Z[g]) / 2 - 2);
+  }
 
   // Ceiling track rails + small warm spotlight heads
   const railMat = new THREE.MeshStandardMaterial({ color: 0x352c22, roughness: 0.5, metalness: 0.35 });
   const fixtureMat = new THREE.MeshStandardMaterial({ color: 0x2b2b2b, roughness: 0.4, metalness: 0.6, emissive: 0xffcf8a, emissiveIntensity: 0.4 });
-  buildPartition(PARTITION_Z);
+  PARTITION_ZS.forEach(pz => buildPartition(pz));
   [-1.6, 1.6].forEach(x => {
     const rail = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.05, CORRIDOR_LENGTH), railMat);
     rail.position.set(x, CORRIDOR_HEIGHT - 0.04, CORRIDOR_CENTER_Z);
@@ -401,52 +404,49 @@ const backingMat = new THREE.MeshStandardMaterial({ color: 0x30251a, emissive: 0
   const shadowMat = new THREE.MeshBasicMaterial({ map: shadowTexture, transparent: true, opacity: 0.4, depthWrite: false });
 
   const PEDESTAL_H = 0.8, VITRINE_H = 1.1;
-  const VITRINE_Z = PARTITION_Z + 3.5;
-  const vitrineSpots = [
-    { x: -1.1, z: VITRINE_Z },
-    { x: 1.1, z: VITRINE_Z }
-  ];
-  vitrineSpots.forEach((spot, i) => {
-    const group = new THREE.Group();
-    group.position.set(spot.x, 0, spot.z);
+  function buildVitrineSet(partZ) {
+    [{ x: -1.1 }, { x: 1.1 }].forEach((spot, i) => {
+      const group = new THREE.Group();
+      group.position.set(spot.x, 0, partZ + 3.5);
 
-    const shadowBlob = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 1.5), shadowMat);
-    shadowBlob.rotation.x = -Math.PI / 2;
-    shadowBlob.position.y = 0.01;
-    group.add(shadowBlob);
+      const shadowBlob = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 1.5), shadowMat);
+      shadowBlob.rotation.x = -Math.PI / 2;
+      shadowBlob.position.y = 0.01;
+      group.add(shadowBlob);
 
-    const pedestal = new THREE.Mesh(new THREE.BoxGeometry(0.75, PEDESTAL_H, 0.75), pedestalMat);
-    pedestal.position.y = PEDESTAL_H / 2;
-    group.add(pedestal);
+      const pedestal = new THREE.Mesh(new THREE.BoxGeometry(0.75, PEDESTAL_H, 0.75), pedestalMat);
+      pedestal.position.y = PEDESTAL_H / 2;
+      group.add(pedestal);
 
-    const glass = new THREE.Mesh(new THREE.BoxGeometry(0.9, VITRINE_H, 0.9), glassMat);
-    glass.position.y = PEDESTAL_H + VITRINE_H / 2;
-    group.add(glass);
+      const glass = new THREE.Mesh(new THREE.BoxGeometry(0.9, VITRINE_H, 0.9), glassMat);
+      glass.position.y = PEDESTAL_H + VITRINE_H / 2;
+      group.add(glass);
 
-    const edges = new THREE.LineSegments(new THREE.EdgesGeometry(glass.geometry), edgeMat);
-    edges.position.copy(glass.position);
-    group.add(edges);
+      const edges = new THREE.LineSegments(new THREE.EdgesGeometry(glass.geometry), edgeMat);
+      edges.position.copy(glass.position);
+      group.add(edges);
 
-    const relic = new THREE.Mesh(
-      i % 2 === 0 ? new THREE.OctahedronGeometry(0.22, 0) : new THREE.TorusKnotGeometry(0.14, 0.05, 64, 8),
-      relicMat
-    );
-    relic.position.y = PEDESTAL_H + VITRINE_H / 2;
-    group.add(relic);
+      const relic = new THREE.Mesh(
+        i % 2 === 0 ? new THREE.OctahedronGeometry(0.22, 0) : new THREE.TorusKnotGeometry(0.14, 0.05, 64, 8),
+        relicMat
+      );
+      relic.position.y = PEDESTAL_H + VITRINE_H / 2;
+      group.add(relic);
 
-    // LED ring built into the base, uplighting the piece from inside the vitrine
-    const led = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.34, 0.02, 24), ledMat);
-    led.position.y = PEDESTAL_H + 0.02;
-    group.add(led);
+      const led = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.34, 0.02, 24), ledMat);
+      led.position.y = PEDESTAL_H + 0.02;
+      group.add(led);
 
-    const ledLight = new THREE.PointLight(0xfff0d0, 0.6, 3, 2);
-    ledLight.position.y = PEDESTAL_H + 0.3;
-    group.add(ledLight);
+      const ledLight = new THREE.PointLight(0xfff0d0, 0.6, 3, 2);
+      ledLight.position.y = PEDESTAL_H + 0.3;
+      group.add(ledLight);
 
-    addGlow(group, PEDESTAL_H + VITRINE_H + 0.15, 1.6);
+      addGlow(group, PEDESTAL_H + VITRINE_H + 0.15, 1.6);
 
-    scene.add(group);
-  });
+      scene.add(group);
+    });
+  }
+  PARTITION_ZS.forEach(pz => buildVitrineSet(pz));
 
   // ---------- Lights (warm amber museum feel — not blown out) ----------
   scene.add(new THREE.AmbientLight(0xffd8a3, 0.38));
