@@ -30,32 +30,6 @@
   // ---------- Works (canvases in the 3D scene stay empty — the real image
   // and description only appear in the popup when a frame is clicked) ----------
   const WORKS = [
-    { title: '3 Phase Inverter Circuit', cat: 'Circuit Design', href: 'projects/3-phase-inverter.html',
-      img: 'assets/Project/3%20Phase.png', meta: 'Proteus · Arduino',
-      desc: 'Designed and simulated a 3-phase inverter with Arduino-controlled motor producing a perfect sinusoidal output.' },
-    { title: 'Electric Power Protection – Lombok Island', cat: 'Power Systems', href: 'projects/electric-power-protection-lombok.html',
-      img: 'assets/Project/Electric%20Power%20Protection.png', meta: 'ETAP',
-      desc: 'Engineered and simulated a comprehensive power protection system for 9 key substations across Lombok Island.' },
-    { title: 'Energy Audit', cat: 'Energy', href: 'projects/energy-audit.html',
-      img: 'assets/Project/Audit%20Energy.png', meta: 'Energy Auditing',
-      desc: 'Conducted a full energy audit at Depok Sleman District Office with a 100% completion rate and actionable recommendations.' },
-    { title: 'Research Assistant Lecturer', cat: 'Research', href: 'projects/research-assistant.html',
-      img: 'assets/Project/Research%20Assistant%20Lecturer.png', meta: 'Arduino · AutoCAD',
-      desc: 'Developed vibration sensors for railway track monitoring using Arduino and Autodesk Inventor for casing design.' },
-    { title: 'PKM 2023 – GAMATEA', cat: 'Innovation', href: 'projects/student-creativity-program.html',
-      img: 'assets/Project/Student%20creativity%20program%202023.png', meta: 'PKM · Kemendikbudristek',
-      desc: 'Led a team to develop an automatic tea leaf cutter, securing national funding from Kemendikbudristek for PT Pagilaran.' },
-    { title: 'Electric Power System – Neera Island', cat: 'Power Systems', href: 'projects/neera-island-power-system.html',
-      img: 'assets/Project/Development%20of%20the%20Electric%20Power%20System%20in%20the%20Neera%20Island.jpg', meta: 'Electrical Design',
-      desc: 'Developed a 10-year master plan for Neera Island\'s power system, integrating solar energy into the distribution network.' },
-    { title: 'Electric Power System – IKN Area', cat: 'Power Systems', href: 'projects/ikn-power-system.html',
-      img: 'assets/Project/Involves%20designing%20and%20developing%20electric%20power%20systems%20in%20the%20IKN%20area.png', meta: 'Electrical Engineering',
-      desc: 'Designed cost-effective power systems for Indonesia\'s new capital, balancing technical performance with budget constraints.' },
-    { title: 'Solar LED Light', cat: 'Electronics', href: 'projects/solar-led-light.html',
-      img: 'assets/Project/Solar%20LED%20Light.png', meta: 'Eagle PCB · Inventor',
-      desc: 'Designed and built a solar-powered LED lamp using Inventor for 3D modeling and Eagle for PCB circuit design.' },
-
-    /* ---- Gallery / Creative Works ---- */
     { title: 'Ola Mascot Character Design', cat: 'Character Design', href: '#',
       img: 'assets/Gallery/Maskot_Ola.jpg', meta: 'Graphic Design · Illustration',
       desc: 'Original mascot character "Ola" designed for branding and visual identity purposes.' },
