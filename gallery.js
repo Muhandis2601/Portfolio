@@ -302,8 +302,7 @@
 
   // ---------- Materials shared by wall niches & vitrines ----------
   const frameMat = new THREE.MeshStandardMaterial({ color: 0x9c6f34, roughness: 0.35, metalness: 0.5 });
-  const canvasMat = new THREE.MeshStandardMaterial({ color: 0xfbf8f3, roughness: 0.95 });
-  const backingMat = new THREE.MeshStandardMaterial({ color: 0x30251a, emissive: 0xffb15f, emissiveIntensity: 0.55, roughness: 1 });
+const backingMat = new THREE.MeshStandardMaterial({ color: 0x30251a, emissive: 0xffb15f, emissiveIntensity: 0.55, roughness: 1 });
   const beamMat = new THREE.MeshBasicMaterial({
     color: 0xfff3d6, transparent: true, opacity: 0.07, side: THREE.DoubleSide, depthWrite: false
   });
@@ -361,10 +360,9 @@
     const border = new THREE.Mesh(new THREE.BoxGeometry(FRAME_W + 0.18, FRAME_H + 0.18, 0.06), frameMat);
     frameGroup.add(border);
 
-    const artMat = new THREE.MeshStandardMaterial({ color: 0xfbf8f3, roughness: 0.95 });
+    const artMat = new THREE.MeshBasicMaterial({ color: 0xfbf8f3 });
     if (work.img) {
       new THREE.TextureLoader().load(work.img, function (tex) {
-        tex.encoding = THREE.sRGBEncoding;
         artMat.map = tex;
         artMat.color.set(0xffffff);
         artMat.needsUpdate = true;
