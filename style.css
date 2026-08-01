@@ -1336,15 +1336,19 @@ section { padding: 100px 0; }
 .cert-card.hidden { display: none; }
 
 .cert-card-img {
-  height: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.4rem;
+  height: 130px;
+  overflow: hidden;
+  background: #eef2f7;
+  border-radius: var(--radius) var(--radius) 0 0;
 }
-.cert-card-img.competition { background: linear-gradient(135deg, #fef9c3, #fde047); color: #a16207; }
-.cert-card-img.expertise   { background: linear-gradient(135deg, #dbeafe, #93c5fd); color: #1d4ed8; }
-.cert-card-img.training    { background: linear-gradient(135deg, var(--green-100), var(--green-200)); color: var(--green-700); }
+.cert-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.cert-card:hover .cert-card-img img { transform: scale(1.04); }
 
 .cert-card-body { padding: 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
 .cert-card-tag {
