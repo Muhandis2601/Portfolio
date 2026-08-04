@@ -83,8 +83,6 @@
         .querySelectorAll('a.file-item')
         .forEach(link => {
           link.addEventListener('click', function (e) {
-            /* If already authenticated this session, let link open normally */
-            if (sessionStorage.getItem('jd_auth') === '1') return;
             e.preventDefault();
             pendingUrl = this.getAttribute('href');
             openModal();
@@ -140,7 +138,6 @@
 
       if (inputHash === ref) {
         /* ✅ Correct */
-        sessionStorage.setItem('jd_auth', '1');
         if (newWin) newWin.location.href = pendingUrl;
         btn.innerHTML = 'Berhasil! &nbsp;<i class="fa-solid fa-check"></i>';
         btn.classList.add('protect-success');
